@@ -91,4 +91,68 @@ document.addEventListener('DOMContentLoaded', () => {
     generate(shipArray[2])
     generate(shipArray[3])
     generate(shipArray[4])
+
+    function rotate(){
+      if(isHorizontal){
+        destroyer.classList.toggle('destroyer-container-vertical')
+        submarine.classList.toggle('submarine-container-vertical')
+        cruiser.classList.toggle('cruiser-container-vertical')
+        battleship.classList.toggle('battleship-container-vertical')
+        carrier.classList.toggle('carrier-container-vertical')
+      }
+    }
+
+    rotateButton.addEventListener('click', rotate)
+
+    //move ships around
+    ships.forEach(ship => ship.addEventListener('dragstart', dragStart))
+    userSquares.forEach(square => square.addEventListener('dragstart', dragStart))
+    userSquares.forEach(square => square.addEventListener('dragover', dragOver))
+    userSquares.forEach(square => square.addEventListener('dragenter', dragEnter))
+    userSquares.forEach(square => square.addEventListener('dragleave', dragLeave))
+    userSquares.forEach(square => square.addEventListener('drop', dragDrop))
+    userSquares.forEach(square => square.addEventListener('dragend', dragEnd))
+
+    let selectedShipNameWithIndex
+    let draggedShip
+    let draggedShipLength
+
+
+    ships.forEach(ship => ship.addEventListener('mousedown', e => {
+      selectedShipNameWithIndex = e.target.id
+    }))
+
+    function dragStart(e){
+      draggedShip = this
+      draggedShipLength = this.childNodes.length
+      console.log(draggedShip)
+    }
+
+    function dragOver(e){
+      e.preventDefault()
+    }
+
+    function dragEnter(e){
+      e.preventDefault()
+    }
+
+    function dragLeave(){
+      
+    }
+
+    function dragDrop(){
+      let shipNameWithLastId = draggedShip.lastChild.id
+      let shipClass = shipNameWithLastId.slice(0,-2)
+      let lastShipIndex = parseInt(shipNameWithLastId.substr(-1))
+      let shipLastid = lastShipIndex + parseInt(this.dataset.id)
+
+      selectedShipIndex = parseInt(selectedShipNameWithIndex.substr(-1))
+      console.log(selectedShipIndex)
+    }
+
+    function dragEnd(){
+      
+    }
+    
+
 });
