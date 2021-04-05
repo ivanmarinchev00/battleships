@@ -304,13 +304,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isHorizontal && !newNotAllowedHorizontal.includes(shipLastId)) {
             for (let i = 0; i < draggedShipLength; i++) {
-                userSquares[parseInt(this.dataset.id) - selectedShipIndex + i].classList.add('taken', shipClass)
+                let directionClass
+                if (i === 0) directionClass = 'start'
+                if (i === draggedShipLength - 1) directionClass = 'end'
+                userSquares[parseInt(this.dataset.id) - selectedShipIndex + i].classList.add('taken', 'horizontal', directionClass, shipClass)
             }
             //As long as the index of the ship you are dragging is not in the newNotAllowedVertical array! This means that sometimes if you drag the ship by its
             //index-1 , index-2 and so on, the ship will rebound back to the displayGrid.
         } else if (!isHorizontal && !newNotAllowedVertical.includes(shipLastId)) {
             for (let i = 0; i < draggedShipLength; i++) {
-                userSquares[parseInt(this.dataset.id) - selectedShipIndex + width * i].classList.add('taken', shipClass)
+                let directionClass
+                if (i === 0) directionClass = 'start'
+                if (i === draggedShipLength - 1) directionClass = 'end'
+                userSquares[parseInt(this.dataset.id) - selectedShipIndex + width * i].classList.add('taken', 'vertical', directionClass, shipClass)
             }
         } else return
 
