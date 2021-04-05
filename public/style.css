@@ -1,38 +1,95 @@
-.container{
+body {
+    margin: 0;
+    background-color: #f3f3f3;
+    overflow-x: hidden;
+}
+
+*,
+* ::before,
+*::after {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+.btn {
+    background-color: hsl(30, 100%, 50%);
+    padding: .5em 1em;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    color: #333;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: hsl(30, 100%, 40%);
+}
+
+.splash-button {
+    font-size: 2rem;
+    margin-left: 2rem;
+}
+
+.splash-button:first-child {
+    margin-left: 0;
+}
+
+.container {
     display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
-.grid-user{
-width: 400px;
-height: 400px;
-display: flex;
-flex-wrap: wrap;
-background-color: blue;
-margin: 20px;
+.battleship-grid {
+    margin: 2vmin;
+    display: grid;
+    background-color: hsl(200, 100%, 50%);
+    grid-template-rows: repeat(10, 4.6vmin);
+    grid-template-columns: repeat(10, 4.6vmin);
 }
 
-.grid div{
-    width: 40px;
-    height: 40px;
-}
-
-.grid-computer{
-    width: 400px;
-    height: 400px;
+.splash-container {
     display: flex;
-    flex-wrap: wrap;
-    background-color: lightgreen;
-    margin: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 66vh;
 }
 
-.grid-display{
+.splash-title {
+    font-family: 'Bangers', cursive;
+    font-size: 10rem;
+}
+
+.splash-battleship-image {
+    position: absolute;
+    bottom: 5vh;
+    left: 20vw;
+    width: 100%;
+    transform: rotateY(180deg);
+    pointer-events: none;
+    opacity: .25;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.battleship-grid div {
+    border: 1px solid hsla(0, 0%, 100%, .2);
+}
+
+.grid-display {
     width: 400px;
     height: 400px;
     margin: 20px;
     background-color: yellow;
 }
 
-.destroyer-container{
+.destroyer-container {
     width: 80px;
     height: 40px;
     background-color: orange;
@@ -40,7 +97,7 @@ margin: 20px;
     display: flex;
 }
 
-.destroyer-container-vertical{
+.destroyer-container-vertical {
     width: 40px;
     height: 80px;
     background-color: orange;
@@ -49,7 +106,7 @@ margin: 20px;
     flex-wrap: wrap;
 }
 
-.submarine-container{
+.submarine-container {
     width: 120px;
     height: 40px;
     background-color: pink;
@@ -57,7 +114,7 @@ margin: 20px;
     display: flex;
 }
 
-.submarine-container-vertical{
+.submarine-container-vertical {
     width: 40px;
     height: 120px;
     background-color: pink;
@@ -66,7 +123,7 @@ margin: 20px;
     flex-wrap: wrap;
 }
 
-.cruiser-container{
+.cruiser-container {
     width: 120px;
     height: 40px;
     background-color: purple;
@@ -74,7 +131,7 @@ margin: 20px;
     display: flex;
 }
 
-.cruiser-container-vertical{
+.cruiser-container-vertical {
     width: 40px;
     height: 120px;
     background-color: purple;
@@ -83,7 +140,7 @@ margin: 20px;
     flex-wrap: wrap;
 }
 
-.battleship-container{
+.battleship-container {
     width: 160px;
     height: 40px;
     background-color: aqua;
@@ -91,7 +148,7 @@ margin: 20px;
     display: flex;
 }
 
-.battleship-container-vertical{
+.battleship-container-vertical {
     width: 40px;
     height: 160px;
     background-color: aqua;
@@ -100,7 +157,7 @@ margin: 20px;
     flex-wrap: wrap;
 }
 
-.carrier-container{
+.carrier-container {
     width: 200px;
     height: 40px;
     background-color: green;
@@ -108,7 +165,7 @@ margin: 20px;
     display: flex;
 }
 
-.carrier-container-vertical{
+.carrier-container-vertical {
     width: 40px;
     height: 200px;
     background-color: green;
@@ -122,48 +179,47 @@ margin: 20px;
     height: 40px;
 }
 
-.destroyer{
+.destroyer {
     background-color: orange;
 }
 
-.submarine{
+.submarine {
     background-color: pink;
 }
 
-.cruiser{
+.cruiser {
     background-color: purple;
 }
 
-.battleship{
+.battleship {
     background-color: aqua;
 }
 
-.carrier{
+.carrier {
     background-color: green;
 }
 
 .boom {
     background-color: red;
-  }
-  
-  .miss {
-     background-color: black;
-  }
+}
 
-  .connected, ready{
-      font-weight: normal;
+.miss {
+    background-color: black;
+}
 
-  }
+.connected,
+ready {
+    font-weight: normal;
+}
 
-  .connected span,
-  .ready span{
-      display:inline-block;
-      width: 1rem;
-      height: 1rem;
-      background:red
+.connected span,
+.ready span {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background: red
+}
 
-  }
-
-  span.green{
-      background: green;
-  }
+span.green {
+    background: green;
+}
